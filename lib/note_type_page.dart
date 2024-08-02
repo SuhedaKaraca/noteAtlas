@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'edit_note_page.dart';
 import 'new_note_page.dart';
@@ -74,10 +73,27 @@ class _NoteTypePageState extends State<NoteTypePage> {
           if (notes.isEmpty)
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Notları görüntüleyebilmek için yeni bir not ekleyin.',
-                style: TextStyle(fontSize: 18, color: Colors.grey),
-                textAlign: TextAlign.center,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade50,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.blue, width: 2),
+                ),
+                padding: EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.info_outline, color: Colors.blue),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        'Yeni bir not ekleyin.',
+                        style: TextStyle(fontSize: 16, color: Colors.blue),
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           Expanded(

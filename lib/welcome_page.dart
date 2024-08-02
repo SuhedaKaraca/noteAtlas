@@ -35,7 +35,7 @@ class WelcomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Hello Again!',
+                      'Merhaba!',
                       style: TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
@@ -43,7 +43,7 @@ class WelcomePage extends StatelessWidget {
                     ),
                     SizedBox(height: 10.0),
                     Text(
-                      'Welcome back you\'ve been missed!',
+                      'Hoşgeldiniz !',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.grey,
@@ -57,7 +57,7 @@ class WelcomePage extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => LoginPage()),
                         );
                       },
-                      child: Text('Sign In'),
+                      child: Text('Giriş Yap'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.yellowAccent,
                         foregroundColor: Colors.blue,
@@ -79,7 +79,7 @@ class WelcomePage extends StatelessWidget {
                               builder: (context) => RegisterPage()),
                         );
                       },
-                      child: Text('Register'),
+                      child: Text('Kayıt Ol'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.black,

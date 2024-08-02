@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'home_page.dart';
 import 'login_page.dart';
 
@@ -8,18 +7,34 @@ class RegisterPage extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> _register(BuildContext context) async {
-    // try {
-    //   UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    //     email: _emailController.text,
-    //     password: _passwordController.text,
-    //   );
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => HomePage()),
+    if (_emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    } else {
+      _showErrorDialog(context, "Email ve şifre boş olamaz");
+    }
+  }
+
+  void _showErrorDialog(BuildContext context, String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Hata'),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Tamam'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
-    // } on FirebaseAuthException catch (e) {
-    //   print('Failed with error code: ${e.code}');
-    //   print(e.message);
-    // }
   }
 
   @override
@@ -53,7 +68,7 @@ class RegisterPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
-                    'Welcome!',
+                    'Hoşgeldiniz!',
                     style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,
@@ -61,7 +76,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    'Create an account to get started!',
+                    'Başlamak için bir hesap oluştur!',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey,
@@ -71,7 +86,7 @@ class RegisterPage extends StatelessWidget {
                   TextField(
                     controller: _emailController,
                     decoration: InputDecoration(
-                      labelText: 'Enter username',
+                      labelText: 'Kullanıcı Adı',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -81,7 +96,7 @@ class RegisterPage extends StatelessWidget {
                   TextField(
                     controller: _passwordController,
                     decoration: InputDecoration(
-                      labelText: 'Password',
+                      labelText: 'Şifre',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -93,7 +108,7 @@ class RegisterPage extends StatelessWidget {
                     onPressed: () async {
                       await _register(context);
                     },
-                    child: Text('Register'),
+                    child: Text('Kayıt Ol'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.yellow,
                       foregroundColor: Colors.blue,
@@ -132,7 +147,7 @@ class RegisterPage extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => LoginPage()),
                       );
                     },
-                    child: Text('Already a member? Sign in now'),
+                    child: Text('Zaten üye misin? Giriş yap'),
                   ),
                 ],
               ),

@@ -1,25 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:note_atlas/register_page.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'home_page.dart';
+import 'register_page.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> _login(BuildContext context) async {
-    // try {
-    //   UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-    //     email: _emailController.text,
-    //     password: _passwordController.text,
-    //   );
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => HomePage()),
+    if (_emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    } else {
+      _showErrorDialog(context, "Email ve şifre boş olamaz");
+    }
+  }
+
+  void _showErrorDialog(BuildContext context, String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Hata'),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Tamam'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
-    // } on FirebaseAuthException catch (e) {
-    //   print('Failed with error code: ${e.code}');
-    //   print(e.message);
-    // }
   }
 
   @override
@@ -53,7 +68,7 @@ class LoginPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
-                    'Hello Again!',
+                    'Tekrar Merhaba!',
                     style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,
@@ -61,7 +76,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    'Welcome back you\'ve been missed!',
+                    'Tekrar Hoşgeldiniz, özlemiştik !',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey,
@@ -71,7 +86,7 @@ class LoginPage extends StatelessWidget {
                   TextField(
                     controller: _emailController,
                     decoration: InputDecoration(
-                      labelText: 'Enter username',
+                      labelText: 'Kullanıcı Adı',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -81,7 +96,7 @@ class LoginPage extends StatelessWidget {
                   TextField(
                     controller: _passwordController,
                     decoration: InputDecoration(
-                      labelText: 'Password',
+                      labelText: 'Şifre',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -93,7 +108,7 @@ class LoginPage extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {},
-                      child: Text('Recovery Password'),
+                      child: Text('Şifre Sıfırla'),
                     ),
                   ),
                   SizedBox(height: 20.0),
@@ -101,7 +116,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () async {
                       await _login(context);
                     },
-                    child: Text('Sign In'),
+                    child: Text('Giriş Yap'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.yellow,
                       foregroundColor: Colors.blue,
@@ -140,7 +155,7 @@ class LoginPage extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => RegisterPage()),
                       );
                     },
-                    child: Text('Not a member? Register now'),
+                    child: Text('Henüz üye değil misin? Kayıt Ol'),
                   ),
                 ],
               ),
