@@ -1,18 +1,23 @@
-# note_atlas
+# NoteAtlas
 
-A new Flutter project.
+Türlerine göre notlar kaydedip, yönetebileceğiniz not uygulaması.
 
-## Getting Started
+## NoteAtlas Login Sayfası
+![NoteAtlas-login-sayfasi](https://github.com/SuhedaKaraca/noteAtlas/blob/main/login.png)
 
-This project is a starting point for a Flutter application.
+## NoteAtlas AnaSayfa
+![NoteAtlas-anasayfa](https://github.com/SuhedaKaraca/noteAtlas/blob/main/anasayfa.png)
 
-A few resources to get you started if this is your first Flutter project:
+## Takım İsmi
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Flutter 87
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Takım Üyeleri
 
-# noteAtlas
+Şüheda Karaca - Product Owner & Developer
+Şeyma Ergüç - Scrum Master
+Tuğba Sena Özdal - Developer
+Ozan Çelikkanat
+Osman Karaaslan
+
+# NoteAtlas
