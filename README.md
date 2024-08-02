@@ -14,10 +14,10 @@ Flutter 87
 
 ## Takım Üyeleri
 
-Şüheda Karaca - Product Owner & Developer
-Şeyma Ergüç - Scrum Master
-Tuğba Sena Özdal - Developer
-Ozan Çelikkanat
-Osman Karaaslan
+- Şüheda Karaca - Product Owner & Developer
+- Şeyma Ergüç - Scrum Master
+- Tuğba Sena Özdal - Developer
+- Ozan Çelikkanat
+- Osman Karaaslan
 
 # NoteAtlas
